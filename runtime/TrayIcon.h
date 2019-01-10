@@ -27,6 +27,7 @@ public:
     ~TrayIcon();
 
     void Init();
+    void deinit();
     void enableShutdownMenu();
     void setMenuActions(MenuActions * menuActions);
 

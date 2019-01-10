@@ -22,6 +22,8 @@ class MenuActions: public QObject
 {
     Q_OBJECT
 public:
+    TrayIcon *trayIcon;
+    
     MenuActions();
     ~MenuActions();
 

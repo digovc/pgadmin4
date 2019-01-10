@@ -93,6 +93,12 @@ void TrayIcon::createActions()
     connect(m_quitAction, SIGNAL(triggered()), m_menuActions, SLOT(onQuit()));
 }
 
+void TrayIcon::deinit()
+{
+    if (m_trayIcon)
+        m_trayIcon->hide();
+}
+
 void TrayIcon::enableShutdownMenu()
 {
     if (m_quitAction != Q_NULLPTR)
@@ -104,4 +110,8 @@ void TrayIcon::enableShutdownMenu()
 void TrayIcon::setMenuActions(MenuActions * menuActions)
 {
     m_menuActions = menuActions;
+
+    if (m_menuActions)
+        m_menuActions->trayIcon = this;
+    
 }

@@ -140,6 +140,8 @@ void MenuActions::onQuit()
 {
     if (QMessageBox::Yes == QMessageBox::question(Q_NULLPTR, tr("Shut down server?"), QString(tr("Are you sure you want to shut down the %1 server?")).arg(PGA_APP_NAME), QMessageBox::Yes | QMessageBox::No))
     {
+        this->trayIcon.deinit();
+
         // Emit the signal to shut down the python server.
         emit shutdownSignal(m_appServerUrl);
         exit(0);
